@@ -24,6 +24,7 @@ export default function RegisterPage() {
         setError(res.message || 'Registration failed.');
       }
     } catch (err) {
+      console.error(err);
       setError('An error occurred. Please try again.');
     } finally {
         setLoading(false);
