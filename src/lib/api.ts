@@ -5,7 +5,11 @@
  * @param body - any (optional request payload)
  * @returns JSON response
  */
-export async function api(path: string, method = 'POST', body?: any) {
+export async function api<T = unknown>(
+    path: string, 
+    method = 'POST', 
+    body?: unknown
+): Promise<T> {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}${path}`, {
         method, // HTTP method
         headers: { 
@@ -16,5 +20,5 @@ export async function api(path: string, method = 'POST', body?: any) {
     });
 
     // Parse the response as JSON and return it
-    return res.json();
+    return res.json() as Promise<T>;
 }
