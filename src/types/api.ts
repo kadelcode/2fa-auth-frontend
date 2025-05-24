@@ -19,7 +19,7 @@ export interface Verify2FAResponse {
 }
 
 export interface GenerateQRResponse {
-  qrImage: string;
+  qrCode: string;
   otpauth_url: string;
   message?: string;
 }
