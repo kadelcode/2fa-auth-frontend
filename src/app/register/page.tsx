@@ -20,7 +20,8 @@ export default function RegisterPage() {
     try {
       const res = await api<RegisterResponse>('/register', 'POST', { email, password });
       if (res.success) {
-        router.push('/login');
+        localStorage.setItem('userId', res.userId);
+        router.push('/setup-2fa');
       } else {
         setError(res.message || 'Registration failed.');
       }
