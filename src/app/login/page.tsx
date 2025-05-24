@@ -32,7 +32,7 @@ export default function LoginPage() {
                     setLoading(false);
                     return;
                 }
-                router.push('/setup-2fa'); // Redirect to 2FA verification
+                router.push('/setup-2fa'); // Redirect to 2FA setup
             } else if (res.accessToken) {
                 document.cookie = `accessToken=${res.accessToken}; path=/`; // Set auth cookie
                 router.push('/dashboard'); // Redirect to dashboard on success
