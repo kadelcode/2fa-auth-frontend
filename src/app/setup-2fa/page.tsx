@@ -1,43 +1,53 @@
-'use client';
+'use client'; // This is a Next.js directive indicationg this is a Client Component
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { api } from '@/lib/api';
-import { GenerateQRResponse } from '@/types/api';
-import { inter, poppins } from '@/lib/font';
-import Image from 'next/image';
+import { api } from '@/lib/api'; // Custom API utility
+import { GenerateQRResponse } from '@/types/api'; // Type definition for API response
+import { inter, poppins } from '@/lib/font'; // Custom fonts
+import Image from 'next/image'; // Next.js optimized Image component
 
 export default function Setup2FA() {
-    const [qrImage, setQrImage] = useState('');
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState<string | null>(null);
-    const router = useRouter();
+    const [qrImage, setQrImage] = useState(''); // State for storing the QR code image
+    const [loading, setLoading] = useState(true); // Loading state
+    const [error, setError] = useState<string | null>(null); // Error state
+    const router = useRouter(); // Next.js router for navigation
 
+    // Effect hook to fetch QR code when component mounts
     useEffect(() => {
+        // Get userId from localStorage
         const userId = localStorage.getItem('userId');
 
+        // If no userId found, redirect to login page
         if (!userId) {
             router.push('/login');
             return;
         }
 
+        // Async function to fetch QR code
         const fetchQR = async () => {
             try {
+                // Call API to generate QR code
                 const res = await api<GenerateQRResponse>('/2fa/setup', 'POST', { userId });
+                // Set QR code image from response
                 setQrImage(res.qrCode);
+                // Clear any previous error
                 setError(null);
             } catch (err: unknown) {
+                // Handle errors and set error message
                 if (err instanceof Error) {
                     setError(err.message);
                 } else {
                     setError('Failed to generate QR code. Please try again later.');
                 }
             } finally {
+                // Set loading to false regardless of success or failure
                 setLoading(false);
             }
         };
 
+        // Call the fetch function
         fetchQR();
-    }, [router]);
+    }, [router]); // Dependency array with router
 
     if (loading) {
         return (
