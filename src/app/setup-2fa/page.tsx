@@ -49,6 +49,7 @@ export default function Setup2FA() {
         fetchQR();
     }, [router]); // Dependency array with router
 
+    // Loading state UI
     if (loading) {
         return (
             <div className={`${poppins.className} min-h-screen flex items-center justify-center bg-gray-200`}>
@@ -60,6 +61,7 @@ export default function Setup2FA() {
         )
     }
 
+    // Error state UI
     if (error) {
         return (
             <div className={`${poppins.className} min-h-screen flex items-center justify-center bg-gray-50 px-4`}>
@@ -71,6 +73,7 @@ export default function Setup2FA() {
                     </div>
                     <h2 className='mt-3 text-lg font-medium text-gray-900'>Error</h2>
                     <p className='mt-2 text-sm text-red-600'>{error}</p>
+                    {/* Retry button */}
                     <button
                       onClick={() => window.location.reload()}
                       className='mt-4 w-full flex justify-center py-2 px-4 border border-transparent rounded-md
