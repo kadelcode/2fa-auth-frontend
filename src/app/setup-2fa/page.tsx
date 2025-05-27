@@ -87,19 +87,23 @@ export default function Setup2FA() {
         );
     }
 
+    // Main UI when QR code is successfully fetched
     return (
         <div className={`${poppins.className} min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8`}>
             <div className='max-w-md w-full mx-auto bg-white p-8 rounded-lg shadow-md'>
                 <div className='text-center'>
+                    {/* Title */}
                     <h2 className={`${inter.className} mt-2 text-2xl font-bold text-gray-900`}>
                         Set Up Two-Factor Authentication
                     </h2>
+                    {/* Instructions */}
                     <p className='mt-2 text-sm text-gray-600'>
                         Scan the QR code below with your authenticator app like
                         Google Authenticator or Authy
                     </p>
                 </div>
 
+                {/* QR Code display */}
                 <div className='mt-6 flex justify-center'>
                     {qrImage ? (
                         <div className='mt-6'>
@@ -109,7 +113,7 @@ export default function Setup2FA() {
                                 width={192}
                                 height={192}
                                 className='w-48 h-48 border border-gray-200 rounded-lg p-2'
-                                unoptimized
+                                unoptimized // Bypass Next.js image optimization since it's a generated QR code
                             />
                         </div>
                     ) : (
@@ -124,6 +128,7 @@ export default function Setup2FA() {
                     </p>
                 </div>
 
+                {/* Continue button */}
                 <div className="mt-6">
                     <button
                         onClick={() => router.push('/verify-2fa')}
