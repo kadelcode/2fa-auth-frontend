@@ -7,14 +7,14 @@ export interface RegisterResponse {
 }
 
 export interface LoginResponse {
-  accessToken?: string;
+  token?: string;
   require2FA?: boolean;
   userId?: string;
   message?: string;
 }
 
 export interface Verify2FAResponse {
-  accessToken?: string;
+  token?: string;
   message?: string;
 }
 
