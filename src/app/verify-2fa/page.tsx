@@ -25,8 +25,8 @@ export default function Verify2FA() {
 
             const res = await api<Verify2FAResponse>('/2fa/verify', 'POST', { userId, token });
             
-            if (res.accessToken) {
-                document.cookie = `accessToken=${res.accessToken}; path=/`;
+            if (res.token) {
+                document.cookie = `accessToken=${res.token}; path=/`;
                 router.push('/dashboard');
             } else {
                 throw new Error(res.message || 'Verification failed. Please try again.');
@@ -116,7 +116,7 @@ export default function Verify2FA() {
                             `}
                             >
                                 {isLoading ? (
-                                    <><Loader2 className='w-5 h-5 mr-2' />Verifying...</>
+                                    <><Loader2 className='w-5 h-5 mr-2 animate-spin' />Verifying...</>
                                 ) : (
                                     'Verify'
                                 )}
