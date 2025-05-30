@@ -33,8 +33,8 @@ export default function LoginPage() {
                     return;
                 }
                 router.push('/setup-2fa'); // Redirect to 2FA setup
-            } else if (res.accessToken) {
-                document.cookie = `accessToken=${res.accessToken}; path=/`; // Set auth cookie
+            } else if (res.token) {
+                document.cookie = `accessToken=${res.token}; path=/`; // Set auth cookie
                 router.push('/dashboard'); // Redirect to dashboard on success
             } else {
                 setError(res.message || 'Login failed'); // Show error message
