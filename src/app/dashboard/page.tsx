@@ -47,7 +47,7 @@ export default function Dashboard() {
                         Welcome to your Dashboard
                     </h2>
                     <p className='text-gray-600 mb-6'>
-                        You're successfully logged in and ready to get started.
+                        You&apos;re successfully logged in and ready to get started.
                     </p>
 
                     {/* Dashboard Cards */}
