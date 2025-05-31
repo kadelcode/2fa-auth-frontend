@@ -10,10 +10,10 @@ export default function LandingPage() {
       </p>
 
       <div className="flex gap-4">
-        <Link href="/register" className="bg-blue-600 text-white px-6 py-2 rounded-xl">
+        <Link href="/register" className="bg-indigo-600 hover:bg-indigo-500 text-white px-6 py-2 rounded-xl">
           Register
         </Link>
-        <Link href="/login" className="border border-blue-600 px-6 py-2 rounded-xl text-blue-600">
+        <Link href="/login" className="border border-indigo-600 px-6 py-2 rounded-xl text-indigo-600">
           Login
         </Link>
       </div>
@@ -29,7 +29,7 @@ export default function LandingPage() {
       </section>
 
       <footer className="mt-12 text-sm text-gray-500">
-        Built with Next.js, Node.js, and Google Authenticator · <a href="https://github.com/kadelcode">GitHub</a>
+        Built with Next.js, Node.js, and Google Authenticator · <a className='text-blue-600 hover:text-blue-500' href="https://github.com/kadelcode">GitHub</a>
       </footer>
     </main>
   );
