@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-// import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { api } from '@/lib/api';
 import { Loader2 } from 'lucide-react';
 
@@ -12,7 +12,7 @@ export default function ForgotPasswordPage() {
     const [error, setError] = useState('');
     const [message, setMessage] = useState('');
     const [loading, setLoading] = useState(false);
-    // const router = useRouter();
+    const router = useRouter();
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -97,6 +97,14 @@ export default function ForgotPasswordPage() {
                         </button>
                     </div>
                 </form>
+                <div className="mt-6 text-center">
+                    <button
+                      onClick={() => router.push('/login')}
+                      className="text-sm text-blue-600 hover:text-blue-500 hover:underline"
+                    >
+                        Back to login
+                    </button>
+                </div>
             </div>
         </main>
     )
