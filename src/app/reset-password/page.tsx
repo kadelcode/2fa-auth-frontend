@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { api } from '@/lib/api';
+import { inter, poppins } from '@/lib/font'
 
 export default function ResetPasswordPage() {
     const [newPassword, setNewPassword] = useState('');
@@ -61,10 +62,10 @@ export default function ResetPasswordPage() {
     };
 
     return (
-        <main className="flex flex-col items-center justify-center min-h-screen bg-gray-50 p-4">
+        <main className={`${poppins.className} flex flex-col items-center justify-center min-h-screen bg-gray-50 p-4`}>
             <div className="w-full max-w-md bg-white rounded-lg shadow-md p-8">
                 <div className="text-center mb-8">
-                    <h1 className='text-3xl font-bold text-gray-800'>Reset Password</h1>
+                    <h1 className={`${inter.className} text-3xl font-bold text-gray-800`}>Reset Password</h1>
                     <p className="text=gray-600 mt-2">Enter your new password below</p>
                 </div>
                 <form onSubmit={handleSubmit} className='space-y-6'>
