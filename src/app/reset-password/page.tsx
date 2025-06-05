@@ -64,10 +64,19 @@ export default function ResetPasswordPage() {
     return (
         <main className={`${poppins.className} flex flex-col items-center justify-center min-h-screen bg-gray-50 p-4`}>
             <div className="w-full max-w-md bg-white rounded-lg shadow-md p-8">
-                <div className="text-center mb-8">
-                    <h1 className={`${inter.className} text-3xl font-bold text-gray-800`}>Reset Password</h1>
+                <div className="text-center mb-6">
+                    <h1 className={`${inter.className} text-2xl font-bold text-gray-800`}>Reset Password</h1>
                     <p className="text-gray-800 mt-2">Enter your new password below</p>
                 </div>
+
+                {message.text && (
+                    <div className={`mt-2 mb-2 p-3 rounded-md ${message.type === 'success' ?
+                        'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'
+                    }`}>
+                        {message.text}
+                    </div>
+                )}
+
                 <form onSubmit={handleSubmit} className='space-y-6'>
                     <div>
                         <label htmlFor="newPassword" className='block text-sm font-medium text-gray-700 mb-1'>
@@ -124,13 +133,6 @@ export default function ResetPasswordPage() {
                     </button>
                 </form>
             </div>
-            {message.text && (
-                <div className={`mt-4 p-3 rounded-md ${message.type === 'success' ?
-                    'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'
-                }`}>
-                    {message.text}
-                </div>
-            )}
         </main>
     )
 }
