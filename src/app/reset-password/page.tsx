@@ -66,7 +66,7 @@ export default function ResetPasswordPage() {
             <div className="w-full max-w-md bg-white rounded-lg shadow-md p-8">
                 <div className="text-center mb-8">
                     <h1 className={`${inter.className} text-3xl font-bold text-gray-800`}>Reset Password</h1>
-                    <p className="text=gray-600 mt-2">Enter your new password below</p>
+                    <p className="text-gray-800 mt-2">Enter your new password below</p>
                 </div>
                 <form onSubmit={handleSubmit} className='space-y-6'>
                     <div>
@@ -81,7 +81,7 @@ export default function ResetPasswordPage() {
                           minLength={8}
                           placeholder='Enter new password'
                           className='w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2
-                          focus:ring-blue-500 focus:border-blue-500 transition'
+                          focus:ring-blue-500 focus:border-blue-500 transition text-gray-700'
                           value={newPassword}
                           onChange={(e) => setNewPassword(e.target.value)}
                         />
@@ -99,7 +99,7 @@ export default function ResetPasswordPage() {
                           minLength={8}
                           placeholder='Confirm new password'
                           className='w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2
-                          focus:ring-blue-500 focus:border-blue-500 transition'
+                          focus:ring-blue-500 focus:border-blue-500 transition text-gray-700'
                           value={confirmPassword}
                           onChange={(e) => setConfirmPassword(e.target.value)}
                         />
