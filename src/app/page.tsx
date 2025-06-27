@@ -29,7 +29,7 @@ export default function LandingPage() {
       </section>
 
       <footer className="mt-12 text-sm text-gray-500">
-        Built with Next.js, Node.js, and Google Authenticator · <a className='text-blue-600 hover:text-blue-500' href="https://github.com/kadelcode">GitHub</a>
+        Built with Next.js, Node.js, and Google Authenticator · <a className='text-blue-600 hover:text-blue-500' href="https://github.com/kadelcode/2fa-auth-service">GitHub</a>
       </footer>
     </main>
   );
