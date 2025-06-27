@@ -1,5 +1,11 @@
 import Link from 'next/link';
 import { inter, poppins } from "@/lib/font"
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Homepage',
+    description: '2FA Authentication System',
+};
 
 export default function LandingPage() {
   return (
